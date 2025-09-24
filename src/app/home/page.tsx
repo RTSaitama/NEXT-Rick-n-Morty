@@ -1,8 +1,8 @@
 export default function Home() {
   return (
     <div>
-      <h1>Rick & Morty  APP</h1>
-      <p>Тут ти можеш переглянути епізоди та локації</p>
+      <h1 className="text-center items-center just w-full">Characters</h1>
+ 
      </div>
   )
 } 

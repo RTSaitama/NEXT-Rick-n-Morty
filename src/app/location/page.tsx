@@ -1,6 +1,6 @@
 
 export default function Location() {
   return (
-    <div>Location</div>
+    <div className="text-center items-center just w-full">Location</div>
   )
 }
