@@ -48,6 +48,8 @@ body {
 }
 .rick-morty-card-link {
   display: inline-block;
+  margin: 20px;
+  color:  #00ff88;
   text-decoration: none;
   color: inherit;
 }

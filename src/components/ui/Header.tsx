@@ -4,15 +4,17 @@ export const Header = () => {
   return (
 <header className=" ">
       <h1>Rick & Morty Wiki</h1>
-      <nav className="navigation flex gap-4">
+      <nav className="navigation flex flex-row gap-4">
         <Link href="/character" >
-          Character
+          <p   className="rick-morty-card-link">Character</p>
+
         </Link>
         <Link href="/episode" >
-          Episode
+          <p   className="rick-morty-card-link">Episode</p>
+
         </Link> 
         <Link href="/location" >
-          Location
+          <p   className="rick-morty-card-link">Location</p>
         </Link>
       </nav>
     </header>
