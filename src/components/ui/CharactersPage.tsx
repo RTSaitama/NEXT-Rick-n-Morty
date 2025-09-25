@@ -22,7 +22,7 @@ export default async function CharactersPage() {
                 width={300}
                 height={300}
                 alt={character.name}
-                className="w-full h-48 object-cover rounded-lg mb-2"
+                className="w-full h-48 object-cover rounded-lg mb-2 portal-image"
               />
               <h3 className="text-lg font-bold">{character.name}</h3>
               <p className={`status-${character.status.toLowerCase()}`}>

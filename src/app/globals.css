@@ -16,8 +16,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Грід-контейнер для всіх сторінок */
-.grid-container {
+ .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
