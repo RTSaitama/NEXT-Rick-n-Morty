@@ -1,6 +1,5 @@
-
-export default function Location() {
-  return (
-    <div className="text-center items-center just w-full">Location</div>
-  )
+ import LocationsPage from "@/components/ui/LocationsPage"
+import Link from "next/link"
+export default function Characters() {
+  return <Link href="/id"  className="rick-morty-card-link"><LocationsPage /></Link>
 }

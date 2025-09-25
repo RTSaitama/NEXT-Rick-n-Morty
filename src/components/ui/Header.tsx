@@ -2,16 +2,16 @@ import Link from "next/link";
 
 export const Header = () => {
   return (
-    <header className="flex w-full h-16 bg-blue-300  items-center text-black text-3xl p-4">
+<header className=" ">
       <h1>Rick & Morty Wiki</h1>
-      <nav className="navigation w-full justify-between gap-4 flex">
-        <Link href="/home">
-          Characters
+      <nav className="navigation flex gap-4">
+        <Link href="/character" >
+          Character
         </Link>
-        <Link href="/episode">
+        <Link href="/episode" >
           Episode
         </Link> 
-        <Link href="/location">
+        <Link href="/location" >
           Location
         </Link>
       </nav>
