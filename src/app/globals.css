@@ -1,6 +1,8 @@
- /* grid-styles.css */
+ @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Bangers&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Bangers&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   margin: 0;
@@ -16,70 +18,213 @@ body {
   overflow-x: hidden;
 }
 
-/* Грід-контейнер для всіх сторінок */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  justify-items: center;  
+ body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, #fff, transparent);
+  background-size: 200px 150px;
+  animation: sparkle 10s linear infinite;
+  z-index: -1;
+  opacity: 0.3;
 }
 
- 
+@keyframes sparkle {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-200px); }
+}
+
+ h1, h2, h3 {
+  font-family: 'Bangers', cursive;
+  text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #00ff88;
+}
+
+h1 { 
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+h2 { 
+  font-size: 2rem; 
+  color: #ff6b9d; 
+}
+
 .rick-morty-card {
-  width: 100%;
-  max-width: 300px;
   background: linear-gradient(135deg, rgba(0,255,136,0.1) 0%, rgba(255,107,157,0.1) 100%);
   border: 2px solid #00ff88;
   border-radius: 20px;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  position: relative;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 .rick-morty-card:hover {
   transform: translateY(-10px);
   border-color: #ff6b9d;
-  box-shadow: 0 10px 30px rgba(0,255,136,0.3), 0 0 50px rgba(255,107,157,0.2);
+  box-shadow: 
+    0 10px 30px rgba(0,255,136,0.3),
+    0 0 50px rgba(255,107,157,0.2);
 }
+
 .rick-morty-card-link {
-  display: inline-block;
-  margin: 20px;
-  color:  #00ff88;
+  display: block;
   text-decoration: none;
   color: inherit;
-}
-.rick-morty-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-  object-fit: cover;
+  transition: all 0.3s ease;
 }
 
- 
-.status-alive { color: #00ff88; }
-.status-dead { color: #ff4757; }
-.status-unknown { color: #ffa502; }
- 
-h1, h2, h3 {
+.rick-morty-card-link:hover {
+  transform: scale(1.02);
+}
+
+.status-alive {
+  color: #00ff88;
+  text-shadow: 0 0 5px #00ff88;
+}
+
+.status-dead {
+  color: #ff4757;
+  text-shadow: 0 0 5px #ff4757;
+}
+
+.status-unknown {
+  color: #ffa502;
+  text-shadow: 0 0 5px #ffa502;
+}
+
+.portal-button {
+  background: linear-gradient(45deg, #00ff88 0%, #00d4ff 100%);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.portal-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00ff88, 0 0 40px #00ff88;
+  color: #000;
+  text-decoration: none;
+}
+
+.navigation{
+  display: flex;
+  justify-content: space-around;
+}
+.navigation a {
+  color: #00ff88;
+  text-decoration: none;
   font-family: 'Bangers', cursive;
-  text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
-  letter-spacing: 2px;
-  text-align: center;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; color: #ff6b9d; }
+.navigation a:hover {
+  color: #ff6b9d;
+  background: rgba(255,107,157,0.1);
+  text-shadow: 0 0 10px #ff6b9d;
+  transform: scale(1.1);
+}
 
- 
+.pagination-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 0;
+  margin-top: 2rem;
+}
+
+.pagination-button {
+  background: linear-gradient(45deg, #00ff88 0%, #00d4ff 100%);
+  border: 2px solid #00ff88;
+  padding: 12px 24px;
+  border-radius: 25px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00ff88;
+  color: #000;
+  text-decoration: none;
+}
+
+.pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #555;
+  border-color: #555;
+  color: #999;
+}
+
+.pagination-info {
+  background: linear-gradient(45deg, #ff6b9d 0%, #00d4ff 100%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-align: center;
+  min-width: 150px;
+}
+
 @media (max-width: 768px) {
-  .grid-container {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-  }
   h1 { font-size: 2rem; }
+  
+  .navigation a { 
+    font-size: 1rem; 
+    padding: 8px 16px; 
+  }
+  
+  .rick-morty-card { 
+    padding: 15px; 
+    max-width: 280px;
+  }
+  
+  .pagination-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .portal-button,
+  .pagination-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
 }
