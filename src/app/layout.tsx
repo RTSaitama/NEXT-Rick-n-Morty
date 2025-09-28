@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/ui/Footer";
 import { Header } from "@/components/ui/Header";
+import Filters from "@/components/ui/Filters";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,13 +23,16 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex  `}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
         <Header />
+        
+        <main className="flex w-full">
+          <Filters/>
 
-        <main className="flex-1 p-8">
           {children}
+         
         </main>
-
+        
         <Footer />
       </body>
     </html>

@@ -13,7 +13,11 @@ export default async function EpisodesPage() {
           <Link
             key={episode.id}
             href={`/episode/${episode.id}`}
+<<<<<<< HEAD
+            className=""
+=======
             className=" bg-gradient-to-br from-green-400/10 to-pink-400/10 border-2 border-green-400 rounded-2xl p-4 shadow-md hover:shadow-xl transition-transform hover:-translate-y-2"
+>>>>>>> 934bd9f2323b870862bbe91501579b2e7aa3c521
           >
             <h3 className="text-lg font-bold mb-2 text-green-400">{episode.name}</h3>
             <p className="text-sm text-white/80 mb-1">Episode: {episode.episode}</p>
