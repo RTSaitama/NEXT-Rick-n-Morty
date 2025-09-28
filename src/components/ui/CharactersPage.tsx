@@ -12,6 +12,7 @@ export default async function CharactersPage({ page }: Props) {
   const data = await fetchCharacters(page);
 
   return (
+
     <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 p-4">
       {data.results.map((character: any) => (
         <Link
@@ -35,6 +36,7 @@ export default async function CharactersPage({ page }: Props) {
           </div>
         </Link>
       ))}
+
     </div>
   );
 }
