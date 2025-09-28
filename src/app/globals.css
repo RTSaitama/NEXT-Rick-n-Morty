@@ -66,9 +66,8 @@ h2 {
   position: relative;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
+  width: 250px;
+  height: 350px;
 }
 
 .rick-morty-card:hover {
