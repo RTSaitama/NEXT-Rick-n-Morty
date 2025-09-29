@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 type Character = {
   id: number
@@ -26,7 +27,7 @@ type CharacterCardProps = {
 }
 
 export default function CharacterCard({ character }: CharacterCardProps) {
-   if (!character) {
+  if (!character) {
     return (
       <div className="rick-morty-card">
         <p className="text-red-400">Character data not available</p>
@@ -43,7 +44,11 @@ export default function CharacterCard({ character }: CharacterCardProps) {
   }
 
   return (
-    <div className="rick-morty-card relative p-6 max-w-md mx-auto">
+    <Link
+      href={`/character/${character.id}`}
+      className="rick-morty-card block w-auto max-w-full"
+
+    >
       <div className="character-image mb-6 text-center">
         <Image
           src={character.image}
@@ -113,6 +118,6 @@ export default function CharacterCard({ character }: CharacterCardProps) {
       </div>
 
       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-    </div>
+    </Link>
   )
 }

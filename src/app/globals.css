@@ -59,6 +59,8 @@ h2 {
 }
 
 .rick-morty-card {
+  width: 100%;  
+  min-height: 350px;
   background: linear-gradient(135deg, rgba(0,255,136,0.1) 0%, rgba(255,107,157,0.1) 100%);
   border: 2px solid #00ff88;
   border-radius: 20px;
@@ -66,9 +68,32 @@ h2 {
   position: relative;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
-  width: 250px;
-  height: 350px;
 }
+.rick-morty-card.character {
+  width: 100%;
+  min-height: 350px;
+  background: linear-gradient(135deg, rgba(0,255,136,0.1) 0%, rgba(255,107,157,0.1) 100%);
+  border: 2px solid #00ff88;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+.rick-morty-card.sidebar {
+  width: 100%;
+  max-width: 100%;  
+  min-height: 350px;
+  background: linear-gradient(135deg, rgba(0,255,136,0.1) 0%, rgba(255,107,157,0.1) 100%);
+  border: 2px solid #00ff88;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+
 
 .rick-morty-card:hover {
   transform: translateY(-10px);
@@ -80,6 +105,7 @@ h2 {
 
 .rick-morty-card-link {
   display: block;
+  width: 100%;
   text-decoration: none;
   color: inherit;
   transition: all 0.3s ease;
@@ -211,9 +237,9 @@ h2 {
     padding: 8px 16px; 
   }
   
-  .rick-morty-card { 
-    padding: 15px; 
-    max-width: 280px;
+   .rick-morty-card {
+    padding: 15px;
+    min-height: 300px;
   }
   
   .pagination-container {
@@ -226,4 +252,36 @@ h2 {
     padding: 10px 20px;
     font-size: 14px;
   }
+}
+
+select,
+input[type="text"] {
+  background-color: #0f172a;
+  color: inherit;
+  margin-bottom: 5px;
+}
+
+select option {
+  background-color: #0f172a;
+  color: inherit;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input[type="text"]::placeholder {
+  opacity: 0.5;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+}
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
