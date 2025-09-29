@@ -9,7 +9,7 @@ export default async function LocationsPage() {
   return (
     <div className="p-6">
       <h1 className="text-3xl font-bold text-center mb-8 text-green-400">Locations</h1>
-      <div className="grid gap-6 grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
+      <div className="w-[70%] grid gap-6 grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
         {data.results.map((location: any) => (
           <Link
             key={location.id}
