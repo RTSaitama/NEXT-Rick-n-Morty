@@ -53,8 +53,8 @@ export default function CharacterCard({ character }: CharacterCardProps) {
         <Image
           src={character.image}
           alt={character.name}
-          width={200}
-          height={200}
+          width={100}
+          height={100}
           className="w-48 h-48 rounded-full object-cover border-4 border-green-400 mx-auto portal-image"
         />
       </div>

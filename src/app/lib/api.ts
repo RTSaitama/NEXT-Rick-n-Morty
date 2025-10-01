@@ -1,8 +1,34 @@
 const API_BASE = 'https://rickandmortyapi.com/api'
 
- export async function fetchCharacters(page = 1) {
+type FetchCharactersParams = {
+  page?: number
+  name?: string
+  status?: string
+  species?: string
+  gender?: string
+}
+
+export async function fetchCharacters(params: FetchCharactersParams = {}) {
   try {
-    const response = await fetch(`${API_BASE}/character?page=${page}`)
+    const { page = 1, name, status, species, gender } = params
+    
+    const queryParams = new URLSearchParams()
+    queryParams.set('page', String(page))
+    if (name) {
+      queryParams.set('name', name)
+    };
+    if (status) {
+      queryParams.set('status', status)
+    };
+    if (species) {
+      queryParams.set('species', species)
+    };
+    if (gender) {
+      queryParams.set('gender', gender)
+    };
+    
+    const response = await fetch(`${API_BASE}/character?${queryParams.toString()}`)
+    
     if (!response.ok) {
       throw new Error('Failed to fetch characters')
     }
