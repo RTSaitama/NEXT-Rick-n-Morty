@@ -5,7 +5,7 @@ import Pagination from './Pagination';
 
 export default async function EpisodesPage({ searchParams }: { searchParams: { page?: string } }) {
   const page = searchParams?.page ? Number(searchParams.page) : 1;
-  const data = await fetchEpisodes(page);
+  const data = await fetchEpisodes({ page });
 
   return (
     <div>
@@ -28,7 +28,7 @@ export default async function EpisodesPage({ searchParams }: { searchParams: { p
           currentPage={page}
           totalPages={data.info.pages}
           basePath="/episodes"
-        />
+        />   
       </div>
     </div>
   )

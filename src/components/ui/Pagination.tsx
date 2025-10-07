@@ -1,12 +1,26 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+'use client'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 
-export default function Pagination({ currentPage, totalPages, basePath }: any) {
+type PaginationProps = {
+  currentPage: number
+  totalPages: number
+  basePath: string
+}
+
+export default function Pagination({ currentPage, totalPages, basePath }: PaginationProps) {
+  const searchParams = useSearchParams()
+  
+  const createPageUrl = (page: number) => {
+    const params = new URLSearchParams(searchParams.toString())
+    params.set('page', String(page))
+    return `${basePath}?${params.toString()}`
+  }
+
   return (
     <div className="pagination-container">
       {currentPage > 1 ? (
-        <Link href={`${basePath}?page=${currentPage - 1}`} 
-              className="pagination-button">
+        <Link href={createPageUrl(currentPage - 1)} className="pagination-button">
           Previous
         </Link>
       ) : (
@@ -20,8 +34,7 @@ export default function Pagination({ currentPage, totalPages, basePath }: any) {
       </span>
       
       {currentPage < totalPages ? (
-        <Link href={`${basePath}?page=${currentPage + 1}`} 
-              className="pagination-button">
+        <Link href={createPageUrl(currentPage + 1)} className="pagination-button">
           Next
         </Link>
       ) : (

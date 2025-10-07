@@ -1,8 +1,8 @@
 import { fetchEpisodes } from "../lib/api"
 import EpisodesPage from "@/components/ui/EpisodesPage";
 
-export default async function Episodes() {
+export default async function Episodes({searchParams}: {searchParams: {page?: string}}) {
   const episodes = await fetchEpisodes();
   console.log(episodes.results)
-  return (<EpisodesPage/>) 
+  return (<EpisodesPage searchParams={searchParams}/>) 
 }

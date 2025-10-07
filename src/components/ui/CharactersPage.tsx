@@ -11,34 +11,38 @@ type Character = {
   species: string;
   type: string;
   gender: string;
-  origin: {
-    name: string;
-    url: string;
-  };
-  location: {
-    name: string;
-    url: string;
-  };
+  origin: { name: string; url: string };
+  location: { name: string; url: string };
   image: string;
   episode: string[];
   url: string;
   created: string;
 };
 
-export default async function CharactersPage({ searchParams }: { searchParams?: { page?: string, name?: string, status?: string, species?: string, gender?: string } }) {
-  const page = searchParams?.page ? Number(searchParams.page) : 1
+export default async function CharactersPage({
+  searchParams,
+}: {
+  searchParams?: {
+    page?: string;
+    name?: string;
+    status?: string;
+    species?: string;
+    gender?: string;
+  };
+}) {
+  const page = searchParams?.page ? Number(searchParams.page) : 1;
 
   const data = await fetchCharacters({
     page,
     name: searchParams?.name,
     status: searchParams?.status,
     species: searchParams?.species,
-    gender: searchParams?.gender
-  })
+    gender: searchParams?.gender,
+  });
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4">
         {data.results.map((char: Character) => (
           <Link key={char.id} href={`/character/${char.id}`}>
             <div className="rick-morty-card">
@@ -57,12 +61,8 @@ export default async function CharactersPage({ searchParams }: { searchParams?: 
         ))}
       </div>
 
-      <div className="pagination-container">
-        <Pagination
-          currentPage={page}
-          totalPages={data.info.pages}
-          basePath="/"
-        />
+      <div className="mt-8 flex justify-center">
+        <Pagination currentPage={page} totalPages={data.info.pages} basePath="/characters" />
       </div>
     </>
   );

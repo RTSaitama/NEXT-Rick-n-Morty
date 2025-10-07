@@ -7,7 +7,17 @@ type FetchCharactersParams = {
   species?: string
   gender?: string
 }
-
+type FetchLocationsParams = {
+  page?: number
+  name?: string
+  type?: string
+  dimension?: string
+}
+type FetchEpisodesParams = {
+  page?: number
+  name?: string
+  episode?: string
+}
 export async function fetchCharacters(params: FetchCharactersParams = {}) {
   try {
     const { page = 1, name, status, species, gender } = params
@@ -52,15 +62,21 @@ export async function fetchCharacters(params: FetchCharactersParams = {}) {
   }
 }
 
- export async function fetchEpisodes(page = 1) {
+export async function fetchLocations(params: FetchLocationsParams = {}) {
   try {
-    const response = await fetch(`${API_BASE}/episode?page=${page}`)
-    if (!response.ok) {
-      throw new Error('Failed to fetch episodes')
-    }
+    const { page = 1, name, type, dimension } = params
+    
+    const queryParams = new URLSearchParams()
+    queryParams.set('page', String(page))
+    if (name) queryParams.set('name', name)
+    if (type) queryParams.set('type', type)
+    if (dimension) queryParams.set('dimension', dimension)
+    
+    const response = await fetch(`${API_BASE}/location?${queryParams.toString()}`)
+    if (!response.ok) throw new Error('Failed to fetch locations')
     return await response.json()
   } catch (error) {
-    console.error('Error fetching episodes:', error)
+    console.error('Error fetching locations:', error)
     throw error
   }
 }
@@ -78,18 +94,24 @@ export async function fetchCharacters(params: FetchCharactersParams = {}) {
   }
 }
 
- export async function fetchLocations(page = 1) {
+ export async function fetchEpisodes(params: FetchEpisodesParams = {}) {
   try {
-    const response = await fetch(`${API_BASE}/location?page=${page}`)
-    if (!response.ok) {
-      throw new Error('Failed to fetch locations')
-    }
+    const { page = 1, name, episode } = params
+    
+    const queryParams = new URLSearchParams()
+    queryParams.set('page', String(page))
+    if (name) queryParams.set('name', name)
+    if (episode) queryParams.set('episode', episode)
+    
+    const response = await fetch(`${API_BASE}/episode?${queryParams.toString()}`)
+    if (!response.ok) throw new Error('Failed to fetch episodes')
     return await response.json()
   } catch (error) {
-    console.error('Error fetching locations:', error)
+    console.error('Error fetching episodes:', error)
     throw error
   }
 }
+
 
  export async function fetchLocation(id: number) {
   try {
