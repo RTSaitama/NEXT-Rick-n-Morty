@@ -22,22 +22,19 @@ export async function fetchCharacters(params: FetchCharactersParams = {}) {
   try {
     const { page = 1, name, status, species, gender } = params
     
+    console.log('Params received:', params)  
+    
     const queryParams = new URLSearchParams()
     queryParams.set('page', String(page))
-    if (name) {
-      queryParams.set('name', name)
-    };
-    if (status) {
-      queryParams.set('status', status)
-    };
-    if (species) {
-      queryParams.set('species', species)
-    };
-    if (gender) {
-      queryParams.set('gender', gender)
-    };
+    if (name) queryParams.set('name', name)
+    if (status) queryParams.set('status', status)
+    if (species) queryParams.set('species', species)
+    if (gender) queryParams.set('gender', gender)
     
-    const response = await fetch(`${API_BASE}/character?${queryParams.toString()}`)
+    const fullUrl = `${API_BASE}/character?${queryParams.toString()}`
+    console.log('Full URL:', fullUrl)  // Додай
+    
+    const response = await fetch(fullUrl)
     
     if (!response.ok) {
       throw new Error('Failed to fetch characters')

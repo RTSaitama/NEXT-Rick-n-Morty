@@ -1,11 +1,11 @@
  'use client'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams, usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 export default function Filters() {
   const router = useRouter()
   const searchParams = useSearchParams()
-  
+  const pathname = usePathname()
   const [filters, setFilters] = useState({
     name: searchParams.get('name') || '',
     status: searchParams.get('status') || '',
@@ -13,18 +13,23 @@ export default function Filters() {
     gender: searchParams.get('gender') || ''
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    
-    const params = new URLSearchParams()
-    if (filters.name) params.set('name', filters.name)
-    if (filters.status) params.set('status', filters.status)
-    if (filters.species) params.set('species', filters.species)
-    if (filters.gender) params.set('gender', filters.gender)
-    
-    router.push(`/?${params.toString()}`)
-  }
-
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault()
+  
+  console.log('Filters state:', filters)  
+  console.log('Current pathname:', pathname)
+  
+  const params = new URLSearchParams()
+  if (filters.name) params.set('name', filters.name)
+  if (filters.status) params.set('status', filters.status)
+  if (filters.species) params.set('species', filters.species)
+  if (filters.gender) params.set('gender', filters.gender)
+  
+  const finalUrl = `${pathname}?${params.toString()}`
+  console.log('Redirecting to:', finalUrl)
+  console.log('Characters page searchParams:', searchParams)
+  router.push(finalUrl)
+}
   return (
     <form 
       onSubmit={handleSubmit} 
