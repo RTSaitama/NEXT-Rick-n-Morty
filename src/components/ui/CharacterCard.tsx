@@ -63,26 +63,26 @@ export default function CharacterCard({ character }: CharacterCardProps) {
         <h1 className="text-3xl font-bold text-green-400 mb-3 text-center">{character.name}</h1>
         
         <div className="space-y-3">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-around items-center">
             <span className="text-gray-300 font-semibold">Status:</span>
             <span className={`font-bold ${getStatusColor(character.status)}`}>
               {character.status}
             </span>
           </div>
           
-          <div className="flex justify-between items-center">
+          <div className="flex justify-around items-center">
             <span className="text-gray-300 font-semibold">Species:</span>
             <span className="text-purple-300">{character.species}</span>
           </div>
           
           {character.type && (
-            <div className="flex justify-between items-center">
+            <div className="flex justify-around items-center">
               <span className="text-gray-300 font-semibold">Type:</span>
               <span className="text-blue-300">{character.type}</span>
             </div>
           )}
           
-          <div className="flex justify-between items-center">
+          <div className="flex justify-around items-center">
             <span className="text-gray-300 font-semibold">Gender:</span>
             <span className="text-pink-300">{character.gender}</span>
           </div>
@@ -90,7 +90,7 @@ export default function CharacterCard({ character }: CharacterCardProps) {
       </div>
 
       <div className="location-info mb-6 bg-gradient-to-r from-green-900/20 to-purple-900/20 p-4 rounded-lg">
-        <h3 className="text-lg font-bold text-green-400 mb-3">Location Info</h3>
+        <h3 className="text-lg font-bold text-green-400 mb-[20px] ">Location Info</h3>
         
         <div className="space-y-2">
           <div>
@@ -106,12 +106,12 @@ export default function CharacterCard({ character }: CharacterCardProps) {
       </div>
 
       <div className="stats bg-gradient-to-r from-purple-900/20 to-blue-900/20 p-4 rounded-lg">
-        <h3 className="text-lg font-bold text-purple-400 mb-2">Stats</h3>
-        <div className="flex justify-between items-center">
+        <h3 className="text-lg font-bold text-purple-400 mb-[20px]">Stats</h3>
+        <div className="flex justify-center items-center">
           <span className="text-gray-300">Episodes:</span>
           <span className="text-green-300 font-bold">{character.episode.length}</span>
         </div>
-        <div className="flex justify-between items-center mt-1">
+        <div className="flex justify-center items-center mt-4">
           <span className="text-gray-300 text-sm">Character ID:</span>
           <span className="text-blue-300 text-sm">#{character.id}</span>
         </div>

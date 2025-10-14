@@ -33,13 +33,14 @@ const handleSubmit = (e: React.FormEvent) => {
   return (
     <form 
       onSubmit={handleSubmit} 
-      className="rick-morty-card sidebar p-6 mb-8 "
+      className="rick-morty-card sidebar p-6 mb-8 w-full max-w-full"
     >
       <h2 className="text-2xl font-bold text-green-400 mb-6 text-center">
         Filter Characters
       </h2>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+<div className="grid auto-fit grid-cols-1 md:grid-cols-2 gap-4 mb-6 w-full max-w-full">
+
         <div>
           <label className="block text-green-400 font-bold mb-2">Character Name</label>
           <input

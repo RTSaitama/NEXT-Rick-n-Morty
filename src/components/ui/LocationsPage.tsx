@@ -14,7 +14,7 @@ export default async function LocationsPage({
 
   return (
    <div className="flex flex-col w-full  md:flex-row gap-4"> 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4">
+      <div className="grid auto-fit grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4">
         {data.results.map((location: Location) => (
           <Link key={location.id} href={`/location/${location.id}`}>
             <div className="w-full  min-h-[120px] max-h-[200px] p-4 rounded-2xl shadow-md hover:shadow-xl transition-transform hover:-translate-y-2 bg-gradient-to-br from-green-400/10 to-pink-400/10 border-2 border-green-400 flex flex-col justify-center">
