@@ -31,9 +31,8 @@ export default async function LocationCard({ location }: LocationCardProps) {
   const residents = await fetchResidents(location.residents)
 
   return (
-    <div className="rick-morty-card relative p-4">
-      {/* Превью жителів */}
-      <div className="residents-preview mb-4">
+    <div className="rick-morty-card relative p-4 mb-[10px] m-auto min-w-[360px]">
+      <div className="residents-preview mb-3">
         {location.residents.length > 0 ? (
           <div className="flex gap-2 mb-2">
             {residents.map((resident) => (
@@ -48,8 +47,8 @@ export default async function LocationCard({ location }: LocationCardProps) {
               />
             ))}
             {location.residents.length > 4 && (
-              <div className="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">
-                +{location.residents.length - 4}
+              <div className="w-16 h-16 px-[20px] rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">
+                + {location.residents.length - 4}
               </div>
             )}
           </div>
@@ -60,7 +59,7 @@ export default async function LocationCard({ location }: LocationCardProps) {
         )}
       </div>
 
-      <div className="location-info">
+      <div className="location-info mb-3">
         <h3 className="text-xl font-bold text-purple-400 mb-2">{location.name}</h3>
         <p className="text-blue-300 font-semibold mb-1">{location.type}</p>
         <p className="text-gray-300 text-sm mb-2">{location.dimension}</p>
@@ -69,8 +68,8 @@ export default async function LocationCard({ location }: LocationCardProps) {
         </p>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-end p-4">
-        <button className="portal-button text-sm py-2 px-4">
+      <div className="flex justify-center mt-3">
+        <button className="portal-button text-sm">
           View Details
         </button>
       </div>

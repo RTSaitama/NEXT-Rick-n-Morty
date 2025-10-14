@@ -285,3 +285,12 @@ select:focus {
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
+.residents-preview{
+  margin-bottom:20px;
+}
+
+.location-info {
+  margin-bottom: 20px;
+  justify-self: center;
+  align-self: center;
+}
