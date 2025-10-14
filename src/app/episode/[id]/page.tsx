@@ -12,8 +12,10 @@ type Episode = {
   created: string;
 };
 
-export default async function EpisodePage({ params }: { params: { id: string } }) {
-  const episode: Episode = await fetchEpisode(Number(params.id));
+export default async function EpisodePage({  params }: {   params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  
+  const episode: Episode = await fetchEpisode(Number(id));
 
   return (
   <EpisodeCard episode={episode}/>
