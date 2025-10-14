@@ -33,7 +33,7 @@ const handleSubmit = (e: React.FormEvent) => {
   return (
     <form 
       onSubmit={handleSubmit} 
-      className="rick-morty-card sidebar w-full  p-6 mb-8 flex-shrink-0"
+      className="rick-morty-card sidebar p-6 mb-8 "
     >
       <h2 className="text-2xl font-bold text-green-400 mb-6 text-center">
         Filter Characters

@@ -62,7 +62,7 @@ export default async function CharactersPage({
       </div>
 
       <div className="mt-8 flex justify-center">
-        <Pagination currentPage={page} totalPages={data.info.pages} basePath="/characters" />
+        <Pagination currentPage={page} totalPages={data.info.pages} basePath="/character" />
       </div>
     </>
   );

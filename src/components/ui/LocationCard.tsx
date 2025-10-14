@@ -1,24 +1,11 @@
 import Image from 'next/image'
-
-type Location = {
-  id: number
-  name: string
-  type: string
-  dimension: string
-  residents: string[]
-}
-
-type Character = {
-  id: number
-  name: string
-  image: string
-}
-
+import type { Character } from '@/typedefs/typedefs'
 type LocationCardProps = {
   location: Location
 }
 
- 
+import type { Location } from '@/typedefs/typedefs'
+
 async function fetchResidents(residentUrls: string[]): Promise<Character[]> {
   try {
     const urls = residentUrls.slice(0, 4)  
@@ -73,7 +60,6 @@ export default async function LocationCard({ location }: LocationCardProps) {
         )}
       </div>
 
-      {/* Інформація про локацію */}
       <div className="location-info">
         <h3 className="text-xl font-bold text-purple-400 mb-2">{location.name}</h3>
         <p className="text-blue-300 font-semibold mb-1">{location.type}</p>
@@ -83,7 +69,6 @@ export default async function LocationCard({ location }: LocationCardProps) {
         </p>
       </div>
 
-      {/* Ховер ефект */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-end p-4">
         <button className="portal-button text-sm py-2 px-4">
           View Details
