@@ -8,4 +8,4 @@ export default async  function Characters({
 
   const params = await searchParams;
   return <LocationsPage  searchParams={params}/>
-}
+}   
