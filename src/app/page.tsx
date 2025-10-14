@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation'
 
-export default async function HomePage({ searchParams }: { searchParams: { page?: string } }) {
+export default async function HomePage() {
 redirect('/character')
 }
