@@ -1,5 +1,11 @@
  import LocationsPage from "@/components/ui/LocationsPage"
  
-export default function Characters({ searchParams }: { searchParams: { page?: string } }) {
-  return <LocationsPage  searchParams={searchParams}/>
+export default async  function Characters({ 
+  searchParams 
+}: { 
+  searchParams: Promise <{ page?: string }>
+ }) {
+
+  const params = await searchParams;
+  return <LocationsPage  searchParams={params}/>
 }
